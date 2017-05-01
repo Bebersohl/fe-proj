@@ -1,8 +1,10 @@
-const todo = (state = {}, action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux'
+import errors from './errors'
+import user from './user'
 
-export default todo
+const rootReducer = combineReducers({
+  errors,
+  user,
+});
+
+export default rootReducer

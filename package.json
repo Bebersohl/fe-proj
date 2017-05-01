@@ -9,8 +9,10 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "5.0.4",
+    "react-responsive": "1.2.10",
     "react-tap-event-plugin": "2.0.1",
     "redux": "3.6.0",
+    "redux-log-diff": "1.0.2",
     "redux-saga": "0.15.0"
   },
   "devDependencies": {

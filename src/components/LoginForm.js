@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import FlatButton from 'material-ui/FlatButton'
 
 class LoginForm extends Component {
   constructor(){
@@ -48,6 +49,8 @@ class LoginForm extends Component {
           secondary={true}
           type="submit"
         />
+        <br/><br/>
+        <FlatButton fullWidth={true} label="Register" secondary={true} onTouchTap={this.props.changeModalState('RegisterOpen', true)}/>
       </form>
     )
   }

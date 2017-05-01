@@ -1,12 +1,12 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
-import Login from './Login'
-import Logged from './Logged'
+import HeaderLogin from './HeaderLogin'
+import HeaderLogged from './HeaderLogged'
 
-const Header = ({ fetchingUser, currentUser, handleLogin, ...props }) => (
+const Header = ({ user }) => (
   <AppBar
     title="baseweight"
-    iconElementRight={ currentUser ? <Logged/> : <Login/>}
+    iconElementRight={ user ? <HeaderLogged/> : <HeaderLogin/>}
     showMenuIconButton={false}
   />
 )

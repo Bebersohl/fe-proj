@@ -5,7 +5,7 @@ import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { auth } from '../firebase'
 
-const Logged = (props) => (
+const HeaderLogged = (props) => (
   <IconMenu
     {...props}
     iconButtonElement={
@@ -21,6 +21,6 @@ const Logged = (props) => (
   </IconMenu>
 )
 
-Logged.muiName = 'IconMenu'
+HeaderLogged.muiName = 'IconMenu'
 
-export default Logged
+export default HeaderLogged

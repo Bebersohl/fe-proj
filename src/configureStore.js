@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers/index'
+import logger from 'redux-log-diff'
+import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   rootReducer,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware, logger)
 )
 
-const action = type => store.dispatch({type})
+sagaMiddleware.run(rootSaga)
 
 export default store
