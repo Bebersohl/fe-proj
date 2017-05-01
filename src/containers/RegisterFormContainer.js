@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import RegisterForm from '../components/RegisterForm'
 
-const mapStateToProps = ({ errors }) => ({
+const mapStateToProps = ({ errors, user }) => ({
   errors,
 })
 

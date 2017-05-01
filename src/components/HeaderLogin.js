@@ -27,21 +27,25 @@ class HeaderLogin extends Component {
   }
 
   render() {
+    const {creatingUser, dispatch, resetErrors, ...props} = this.props
     return (
       <div>
         <MediaQuery minDeviceWidth={425}>
-          <FlatButton {...this.props} label="Register" onTouchTap={this.changeModalState('RegisterOpen', true)}/>
+          <FlatButton {...props} label="Register" onTouchTap={this.changeModalState('RegisterOpen', true)}/>
         </MediaQuery>
-        <FlatButton {...this.props} label="Login" onTouchTap={this.changeModalState('LoginOpen', true)}/>
+        <FlatButton {...props} label="Login" onTouchTap={this.changeModalState('LoginOpen', true)}/>
         <ModalDialog
           handleClose={this.changeModalState('LoginOpen', false)}
           open={this.state.LoginOpen}
+          modal={true}
         >
           <LoginForm changeModalState={this.changeModalState}/>
         </ModalDialog>
         <ModalDialog
           handleClose={this.changeModalState('RegisterOpen', false)}
           open={this.state.RegisterOpen}
+          modal={creatingUser}
+          loading={creatingUser}
         >
           <RegisterFormContainer changeModalState={this.changeModalState}/>
         </ModalDialog>

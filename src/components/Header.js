@@ -1,12 +1,12 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
-import HeaderLogin from './HeaderLogin'
+import HeaderLoginContainer from '../containers/HeaderLoginContainer'
 import HeaderLogged from './HeaderLogged'
 
 const Header = ({ user }) => (
   <AppBar
     title="baseweight"
-    iconElementRight={ user ? <HeaderLogged/> : <HeaderLogin/>}
+    iconElementRight={ user.uid ? <HeaderLogged/> : <HeaderLoginContainer/>}
     showMenuIconButton={false}
   />
 )

@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import App from '../components/App'
 
 const mapDispatchToProps = dispatch => ({
-  handleNewUser(user){
+  handleAuthChange(user){
     dispatch({
-      type: 'NEW_USER',
+      type: 'AUTH_CHANGE',
       user,
     })
   }

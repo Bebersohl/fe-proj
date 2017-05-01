@@ -47,6 +47,7 @@ class RegisterForm extends Component {
 
   render(){
     const { errors } =  this.props
+
     return (
       <form onSubmit={e => this.handleSubmit(e)}>
         <TextField

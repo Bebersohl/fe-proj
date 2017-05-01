@@ -6,7 +6,7 @@ import HeaderContainer from '../containers/HeaderContainer'
 class App extends Component {
   componentDidMount(){
     auth.onAuthStateChanged(user => {
-      this.props.handleNewUser(user)
+      this.props.handleAuthChange(user)
     });
   }
   

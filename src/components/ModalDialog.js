@@ -2,8 +2,9 @@ import React from 'react'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import GoogleLoginButton from './GoogleLoginButton'
+import Loading from './Loading'
 
-const ModalDialog = ({handleClose, open, children}) => {
+const ModalDialog = ({handleClose, open, children, modal, loading}) => {
   const actions = [
     <FlatButton
       label="Cancel"
@@ -15,7 +16,7 @@ const ModalDialog = ({handleClose, open, children}) => {
   return (
     <Dialog
       actions={actions}
-      modal={false}
+      modal={modal}
       contentStyle={{
         width: '100%',
         maxWidth: '400px',
@@ -23,10 +24,16 @@ const ModalDialog = ({handleClose, open, children}) => {
       open={open}
       onRequestClose={handleClose}
     >
-      <GoogleLoginButton/>
-      <br/><br/>
-      <h5 style={{textAlign: 'center'}}>OR</h5>
-      {children}
+    {loading ? (
+      <Loading/>
+    ) : (
+      <div>
+        <GoogleLoginButton/>
+        <br/><br/>
+        <h5 style={{textAlign: 'center'}}>OR</h5>
+        {children}
+      </div>
+    )}
     </Dialog>
   )
 }
