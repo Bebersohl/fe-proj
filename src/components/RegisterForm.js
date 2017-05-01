@@ -78,7 +78,13 @@ class RegisterForm extends Component {
           type="submit"
         />
         <br/><br/>
-        <FlatButton fullWidth={true} label="Login" secondary={true} onTouchTap={this.props.changeModalState('LoginOpen', true)}/>
+        <FlatButton 
+          fullWidth={true} 
+          label="Login" 
+          secondary={true} 
+          onTouchTap={this.props.changeModalState('LoginOpen', true)} 
+          labelStyle={{fontSize: '.7em'}}
+        />
       </form>
     )
   }

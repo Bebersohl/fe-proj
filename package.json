@@ -12,7 +12,7 @@
     "react-responsive": "1.2.10",
     "react-tap-event-plugin": "2.0.1",
     "redux": "3.6.0",
-    "redux-log-diff": "1.0.2",
+    "redux-logger": "^3.0.1",
     "redux-saga": "0.15.0"
   },
   "devDependencies": {

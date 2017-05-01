@@ -10,6 +10,7 @@ const ModalDialog = ({handleClose, open, children, modal, loading}) => {
       label="Cancel"
       primary={true}
       onTouchTap={handleClose}
+      disabled={loading}
     />
   ]
 
