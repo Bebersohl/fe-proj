@@ -18,11 +18,18 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const {email, password} = this.state
+    let formError = false
     if(!this.state.email) {
+      formError = true
       this.setState({emailError: 'Email is required'})
     }
     if(!this.state.password) {
+      formError = true
       this.setState({passwordError: 'Password is required'})
+    }
+    if(!formError){
+      this.props.handleAuthenticateUser(email, password)
     }
   }
 
@@ -33,7 +40,11 @@ class LoginForm extends Component {
           hintText="Email"
           fullWidth={true}
           onChange={e => this.setState({email: e.target.value, emailError: ''})}
-          errorText={this.state.emailError}
+          errorText={
+            errors['auth/invalid-email'] || 
+            errors['auth/user-disabled'] || 
+            errors['auth/user-not-found'] || 
+            this.state.emailError}
         />
         <TextField
           hintText="Password"

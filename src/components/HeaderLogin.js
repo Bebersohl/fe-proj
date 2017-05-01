@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import FlatButton from 'material-ui/FlatButton'
-import LoginForm from './LoginForm'
+import LoginFormContainer from '../containers/LoginFormContainer'
 import RegisterFormContainer from '../containers/RegisterFormContainer'
 import ModalDialog from './ModalDialog'
 import MediaQuery from 'react-responsive'
@@ -39,7 +39,7 @@ class HeaderLogin extends Component {
           open={this.state.LoginOpen}
           modal={true}
         >
-          <LoginForm changeModalState={this.changeModalState}/>
+          <LoginFormContainer changeModalState={this.changeModalState}/>
         </ModalDialog>
         <ModalDialog
           handleClose={this.changeModalState('RegisterOpen', false)}
