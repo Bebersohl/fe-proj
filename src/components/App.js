@@ -4,6 +4,8 @@ import { auth } from '../firebase'
 import HeaderContainer from '../containers/HeaderContainer'
 import LeftDrawer from './LeftDrawer'
 import Footer from './Footer'
+import GearTable from './GearTable'
+import GearCard from './GearCard'
 
 class App extends Component {
   constructor(){
@@ -27,8 +29,13 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderContainer toggleDrawer={this.toggleDrawer}/>
-        <LeftDrawer open={this.state.drawerOpen} toggleDrawer={this.toggleDrawer}/>
-        <Footer/>
+        <div className="App--body">
+          <LeftDrawer open={this.state.drawerOpen} toggleDrawer={this.toggleDrawer}/>
+          <GearCard>
+            <GearTable/>
+          </GearCard>
+          <Footer/>
+        </div>
       </div>
     )
   }
