@@ -8,7 +8,7 @@ export function createUserRequest(email, password) {
     .catch(error => ({ error }))
 }
 
-function signInUserRequest(email, password) {
+export function signInUserRequest(email, password) {
   return auth.signInWithEmailAndPassword(email, password)
     .then(user => ({ user }))
     .catch(error => ({ error }))
@@ -24,7 +24,7 @@ export function* createUser({email, password}) {
   }
 }
 
-function* signInUser({email, password}) {
+export function* signInUser({email, password}) {
   const { user, error } = yield call(signInUserRequest, email, password)
   if (user) {
     yield put({ type: 'SIGN_IN_USER_SUCCESS', user })

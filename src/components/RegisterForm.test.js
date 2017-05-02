@@ -7,4 +7,4 @@ const changeModalState = sinon.spy()
 
 it('renders without crashing', () => {
   shallow(<RegisterForm errors={{}} changeModalState={changeModalState}/>)
-});
+})

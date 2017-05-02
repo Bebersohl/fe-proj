@@ -1,0 +1,9 @@
+exports[`test handles RESET_ERRORS 1`] = `Object {}`;
+
+exports[`test handles adding errors 1`] = `
+Object {
+  "errorCode": "error message",
+}
+`;
+
+exports[`test handles initial state 1`] = `Object {}`;
