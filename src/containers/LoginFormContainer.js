@@ -6,9 +6,9 @@ const mapStateToProps = ({ errors, user }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleAuthenticateUser(email, password){
+  handleSignInUser(email, password){
     dispatch({
-      type: 'AUTHENTICATE_USER_REQUEST',
+      type: 'SIGN_IN_USER_REQUEST',
       email,
       password,
     })

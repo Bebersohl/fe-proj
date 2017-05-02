@@ -17,17 +17,21 @@ class HeaderLogin extends Component {
   }
 
   changeModalState(state, open) {
+    const { resetErrors } = this.props
     return function() {
       this.setState({
         LoginOpen: false,
         RegisterOpen: false,
         [state]: open
       });
+      if(!open){
+        resetErrors()
+      }
     }.bind(this)
   }
 
   render() {
-    const {creatingUser, dispatch, resetErrors, ...props} = this.props
+    const {creatingUser, signingInUser, dispatch, resetErrors, ...props} = this.props
     return (
       <div>
         <MediaQuery minDeviceWidth={425}>
@@ -37,7 +41,8 @@ class HeaderLogin extends Component {
         <ModalDialog
           handleClose={this.changeModalState('LoginOpen', false)}
           open={this.state.LoginOpen}
-          modal={true}
+          modal={signingInUser}
+          loading={signingInUser}
         >
           <LoginFormContainer changeModalState={this.changeModalState}/>
         </ModalDialog>

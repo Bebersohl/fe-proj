@@ -29,11 +29,12 @@ class LoginForm extends Component {
       this.setState({passwordError: 'Password is required'})
     }
     if(!formError){
-      this.props.handleAuthenticateUser(email, password)
+      this.props.handleSignInUser(email, password)
     }
   }
 
   render(){
+    const { errors } =  this.props
     return (
       <form onSubmit={e => this.handleSubmit(e)}>
         <TextField
@@ -51,7 +52,10 @@ class LoginForm extends Component {
           fullWidth={true}
           onChange={e => this.setState({password: e.target.value, passwordError: ''})}
           type="password"
-          errorText={this.state.passwordError}
+          errorText={
+            errors['auth/wrong-password'] || 
+            this.state.passwordError
+          }
         />
         <br/><br/>
         <RaisedButton 
