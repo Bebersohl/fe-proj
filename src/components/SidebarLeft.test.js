@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import LeftDrawer from './LeftDrawer'
+import SidebarLeft from './SidebarLeft'
 
 it('renders without crashing', () => {
-  shallow(<LeftDrawer />)
+  shallow(<SidebarLeft />)
 })

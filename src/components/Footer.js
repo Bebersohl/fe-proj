@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => (
   <div className="Footer">
     <a target="_blank" href="https://github.com/Bebersohl/baseweight">
-      <img src="GitHub-Mark-Light-32px.png"/>
+      <img src="GitHub-Mark-Light-32px.png" alt="github"/>
     </a>
   </div>
 )

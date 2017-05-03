@@ -1,42 +1,35 @@
 import React, { Component } from 'react'
 import './App.css'
 import { auth } from '../firebase'
-import HeaderContainer from '../containers/HeaderContainer'
-import LeftDrawer from './LeftDrawer'
-import Footer from './Footer'
-import GearTable from './GearTable'
-import GearCard from './GearCard'
-
+import SidebarLeft from './SidebarLeft'
+import { Icon } from 'semantic-ui-react'
+import Main from './Main'
 class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      drawerOpen: false
-    }
-    this.toggleDrawer = this.toggleDrawer.bind(this)
-  }
+  state = { visible: false }
+
+  toggleVisibility = () => this.setState({ visible: !this.state.visible })
+
   componentDidMount(){
     auth.onAuthStateChanged(user => {
       this.props.handleAuthChange(user)
     });
   }
-  toggleDrawer(){
-    this.setState({
-      drawerOpen: !this.state.drawerOpen
-    })
-  }
+  // toggleDrawer(){
+  //   this.setState({
+  //     drawerOpen: !this.state.drawerOpen
+  //   })
+  // }
   render() {
+    const { visible } = this.state
     return (
-      <div className="App">
-        <HeaderContainer toggleDrawer={this.toggleDrawer}/>
-        <div className="App--body">
-          <LeftDrawer open={this.state.drawerOpen} toggleDrawer={this.toggleDrawer}/>
-          <GearCard>
-            <GearTable/>
-          </GearCard>
-          <Footer/>
+      <SidebarLeft visible={visible} toggleVisibility={this.toggleVisibility}>
+        <div className="App">
+          <div className="App--body">
+            <Icon name="content" link size="big" onClick={() => this.toggleVisibility()}/>
+            <Main/>
+          </div>
         </div>
-      </div>
+      </SidebarLeft>
     )
   }
 }

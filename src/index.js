@@ -1,21 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppContainer from './containers/AppContainer'
-import './index.css'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 import store from './configureStore'
 import { Provider } from 'react-redux'
-
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin()
+import 'semantic-ui-css/semantic.min.css'
+import './index.css'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 ReactDOM.render(
-  <MuiThemeProvider>
+  <BrowserRouter>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </MuiThemeProvider>,
+  </BrowserRouter>,
   document.getElementById('root')
+)
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
 )
