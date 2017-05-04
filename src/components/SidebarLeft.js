@@ -26,89 +26,77 @@ export default class SidebarLeft extends Component {
       this.props.toggleVisibility()
     }
   }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name })
+    // this.props.toggleVisibility()
+  }
   render() {
     const { visible } = this.props
     const { activeItem } = this.state
 
     return (
       <div>
-        {/*<Button onClick={this.toggleVisibility}>Toggle Visibility</Button>*/}
         <Sidebar.Pushable>
           <Sidebar as={Menu} animation='overlay'  visible={this.props.visible} vertical inverted>
-            <Menu.Item name='home'>
+            <Menu.Item as='div' name='home'>
               <Header as='h2' color='teal'>
                 <Icon name='home' />
                 baseweight
               </Header>
             </Menu.Item>
-            <Link to="/register">
-              <Menu.Item name='Register' active={activeItem === 'Register'} onClick={this.handleItemClick}>
+              <Menu.Item  name='Register' active={activeItem === 'Register'} onClick={this.handleItemClick}>
                 <Icon name='add user' />
                 Register
               </Menu.Item>
-            </Link>
-            <Link to="/sign-in">
-              <Menu.Item name='Sign In' active={activeItem === 'Sign In'} onClick={this.handleItemClick}>
+              <Menu.Item as='div' name='Sign In' active={activeItem === 'Sign In'} onClick={this.handleItemClick}>
                 <Icon name='sign in' />
                 Sign In
               </Menu.Item>
-            </Link>
-            <Link to="/new-list">
-              <Menu.Item name='New List' active={activeItem === 'New List'} onClick={this.handleItemClick}>
+              <Menu.Item as='div' name='New List' active={activeItem === 'New List'} onClick={this.handleItemClick}>
                 <Icon name='plus' />
                 New List
               </Menu.Item>
-            </Link>
-            <Menu.Item>
+            <Menu.Item as='div'>
               Lists
 
               <Menu.Menu>
-                <Link to="my-lists">
-                  <Menu.Item name='My Lists' active={activeItem === 'My Lists'} onClick={this.handleItemClick}>
+                  <Menu.Item as='div' name='My Lists' active={activeItem === 'My Lists'} onClick={this.handleItemClick}>
                     My Lists
                   </Menu.Item>
-                </Link>
-                <Link to="lists-starred">
-                  <Menu.Item name='Starred' active={activeItem === 'Starred'} onClick={this.handleItemClick}>
+                  <Menu.Item as='div' name='Starred' active={activeItem === 'Starred'} onClick={this.handleItemClick}>
                     Starred
                   </Menu.Item>
-                </Link>
-                <Link to="lists-popular">
-                  <Menu.Item name='Popular' active={activeItem === 'Popular'} onClick={this.handleItemClick}>
+                  <Menu.Item as='div' name='Popular' active={activeItem === 'Popular'} onClick={this.handleItemClick}>
                     Popular
                   </Menu.Item>
-                </Link>
-                <Link to="lists-all">
-                  <Menu.Item name='All' active={activeItem === 'All'} onClick={this.handleItemClick}>
+                  <Menu.Item as='div' name='All' active={activeItem === 'All'} onClick={this.handleItemClick}>
                     All
                   </Menu.Item>
-                </Link>
               </Menu.Menu>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item as='div'>
               Account
 
               <Menu.Menu>
-                <Menu.Item name='Settings' active={activeItem === 'Settings'} onClick={this.handleItemClick}>
+                <Menu.Item as='div' name='Settings' active={activeItem === 'Settings'} onClick={this.handleItemClick}>
                   Settings
                 </Menu.Item>
-                <Menu.Item name='Change Email' active={activeItem === 'Change Email'} onClick={this.handleItemClick}>
+                <Menu.Item as='div' name='Change Email' active={activeItem === 'Change Email'} onClick={this.handleItemClick}>
                   Change Email
                 </Menu.Item>
-                <Menu.Item name='Change Password' active={activeItem === 'Change Password'} onClick={this.handleItemClick}>
+                <Menu.Item as='div' name='Change Password' active={activeItem === 'Change Password'} onClick={this.handleItemClick}>
                   Change Password
                 </Menu.Item>
-                <Menu.Item name='Sign Out' active={activeItem === 'Sign Out'} onClick={this.handleItemClick}>
+                <Menu.Item as='div' name='Sign Out' active={activeItem === 'Sign Out'} onClick={this.handleItemClick}>
                   Sign Out
                 </Menu.Item>
               </Menu.Menu>
             </Menu.Item>
-            <Menu.Item name='Forgot Password' active={activeItem === 'Forgot Password'} onClick={this.handleItemClick}>
+            <Menu.Item as='div' name='Forgot Password' active={activeItem === 'Forgot Password'} onClick={this.handleItemClick}>
               <Icon name='mail outline' />
               Forgot Password
             </Menu.Item>
-            <Menu.Item name='Github' active={activeItem === 'Github'} onClick={this.handleItemClick}>
+            <Menu.Item as='div' name='Github' active={activeItem === 'Github'} onClick={this.handleItemClick}>
               <Icon name='github' />
               Github
             </Menu.Item>

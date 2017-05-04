@@ -1,7 +1,14 @@
 .App {
   height: 100vh;
+
 }
 
 .App--body {
-  padding: 15px;
+  height: 100vh;
+}
+
+.App--nav {
+  position: fixed;
+  top: 15px;
+  left: 15px;
 }

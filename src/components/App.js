@@ -4,6 +4,7 @@ import { auth } from '../firebase'
 import SidebarLeft from './SidebarLeft'
 import { Icon } from 'semantic-ui-react'
 import Main from './Main'
+import Header from './Header'
 class App extends Component {
   state = { visible: false }
 
@@ -14,22 +15,17 @@ class App extends Component {
       this.props.handleAuthChange(user)
     });
   }
-  // toggleDrawer(){
-  //   this.setState({
-  //     drawerOpen: !this.state.drawerOpen
-  //   })
-  // }
+
   render() {
     const { visible } = this.state
     return (
-      <SidebarLeft visible={visible} toggleVisibility={this.toggleVisibility}>
-        <div className="App">
-          <div className="App--body">
-            <Icon name="content" link size="big" onClick={() => this.toggleVisibility()}/>
-            <Main/>
+      <div className='App'>
+        <SidebarLeft visible={visible} toggleVisibility={this.toggleVisibility}>
+          <div className='App--body'>
+            <Header toggleVisibility={this.toggleVisibility}></Header>
           </div>
-        </div>
-      </SidebarLeft>
+        </SidebarLeft>
+      </div>
     )
   }
 }
