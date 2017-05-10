@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import './App.css'
 import { auth } from '../firebase'
 import SidebarLeft from './SidebarLeft'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Grid } from 'semantic-ui-react'
 import Main from './Main'
-import Header from './Header'
+import TopNavContainer from '../containers/TopNavContainer'
+import { BrowserRouter } from 'react-router-dom'
+
 class App extends Component {
-  state = { visible: false }
+  state = { 
+    visible: false 
+  }
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
@@ -19,13 +23,14 @@ class App extends Component {
   render() {
     const { visible } = this.state
     return (
-      <div className='App'>
-        <SidebarLeft visible={visible} toggleVisibility={this.toggleVisibility}>
-          <div className='App--body'>
-            <Header toggleVisibility={this.toggleVisibility}></Header>
-          </div>
-        </SidebarLeft>
-      </div>
+      <BrowserRouter>
+        <Grid container columns={1}>
+          <Grid.Column>
+            <TopNavContainer location={this.props.location}/>
+            <Main/>
+          </Grid.Column>
+        </Grid>
+      </BrowserRouter>
     )
   }
 }

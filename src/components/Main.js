@@ -1,13 +1,16 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Register from './Register'
+import SignUp from './SignUp'
+import SignIn from './SignIn'
+import './Main.css'
 
 const Main = () => (
-  <main>
+  <main className="Main">
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/about' component={About}/>
-      <Route path='/register' component={Register}/>
+      <Route path='/sign-up' component={SignUp}/>
+      <Route path='/sign-in' component={SignIn}/>
       <Route path='/Topic' component={Topic}/>
     </Switch>
   </main>
@@ -21,6 +24,11 @@ const Home = () => (
 
 const About = () => (
   <div>
+    <h2>About</h2>
+    <h2>About</h2>
+    <h2>About</h2>
+    <h2>About</h2>
+    <h2>About</h2>
     <h2>About</h2>
   </div>
 )

@@ -1,0 +1,6 @@
+
+@media (max-width: 767px) {
+  .ui.stackable.menu .right.menu{
+    flex-direction: column;
+  }
+}

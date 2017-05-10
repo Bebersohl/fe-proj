@@ -2,6 +2,7 @@ export const initialState = {
   creatingUser: false,
   signingInUser: false,
   uid: null,
+  authRequestMade: false,
 }
 
 const user = (state = initialState, action) => {
@@ -43,6 +44,7 @@ const user = (state = initialState, action) => {
     case 'AUTH_CHANGE':
       return {
         ...state,
+        authRequestMade: true,
         uid: action.user ? action.user.uid : null
       }
     default:
