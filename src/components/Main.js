@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import SignUp from './SignUp'
-import SignIn from './SignIn'
+import SignUpContainer from '../containers/SignUpContainer'
+import SignInContainer from '../containers/SignInContainer'
 import './Main.css'
 
 const Main = () => (
@@ -9,8 +9,7 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/about' component={About}/>
-      <Route path='/sign-up' component={SignUp}/>
-      <Route path='/sign-in' component={SignIn}/>
+      <Route path='/sign-in/:new_user?' component={SignInContainer}/>
       <Route path='/Topic' component={Topic}/>
     </Switch>
   </main>

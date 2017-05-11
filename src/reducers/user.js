@@ -1,52 +1,29 @@
 export const initialState = {
-  creatingUser: false,
-  signingInUser: false,
   uid: null,
   authRequestMade: false,
 }
 
 const user = (state = initialState, action) => {
   switch (action.type) {
-    case 'CREATE_USER_REQUEST':
-      return {
-        ...state,
-        creatingUser: true
-      }
-    case 'CREATE_USER_SUCCESS':
-      return {
-        ...state,
-        creatingUser: false,
-        uid: action.user.uid
-      }
-    case 'CREATE_USER_FAIL':
-      return {
-        ...state,
-        creatingUser: false,
-        uid: null,
-      }
-    case 'SIGN_IN_USER_REQUEST':
-      return {
-        ...state,
-        signingInUser: true
-      }
     case 'SIGN_IN_USER_SUCCESS':
       return {
         ...state,
-        signingInUser: false,
-        uid: action.user.uid,
+        uid: action.user.uid
       }
+      break
     case 'SIGN_IN_USER_FAIL':
       return {
         ...state,
-        signingInUser: false,
         uid: null,
       }
+      break
     case 'AUTH_CHANGE':
       return {
         ...state,
         authRequestMade: true,
         uid: action.user ? action.user.uid : null
       }
+      break
     default:
       return state
   }

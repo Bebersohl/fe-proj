@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Segment, Button, Form, Header, Icon, Divider, Message } from 'semantic-ui-react'
+import { Segment, Button, Form, Header, Icon, Divider, Message, Dimmer, Loader } from 'semantic-ui-react'
 import ErrorMessage from './ErrorMessage'
 import {validate} from 'email-validator'
 
@@ -11,43 +11,54 @@ class SignUp extends Component {
     emailError: false,
     passwordError: false,
     confirmPasswordError: false,
-    errorMessages: [],
+    clientErrors: [],
   }
   handleSubmit = (e) => {
     e.preventDefault()
     const {email, password, confirmPassword,} = this.state
-    const errorMessages = []
+    const clientErrors = []
 
     if(!email){
-      errorMessages.push('Email is required')
+      clientErrors.push('Email is required')
     } else if (!validate(email)){
-      errorMessages.push('Email is invalid')
+      clientErrors.push('Email is invalid')
     }
 
     if(!password){
-      errorMessages.push('Password is required')
+      clientErrors.push('Password is required')
     } else if (password < 6) {
-      errorMessages.push('Password must be at least 6 characters long')
+      clientErrors.push('Password must be at least 6 characters long')
     }
 
     if(!confirmPassword){
-      errorMessages.push('Confirm Password is required')
+      clientErrors.push('Confirm Password is required')
     } else if (password !== confirmPassword) {
-      errorMessages.push('Password\'s must match')
+      clientErrors.push('Password\'s must match')
+    }
+
+    if(clientErrors.length === 0){
+      console.log('create user')
+      this.props.handleCreateUser(email, password)
     }
 
     this.setState({
       emailError: !email || !validate(email),
       passwordError: !password || password.length < 6,
       confirmPasswordError: !confirmPassword || confirmPassword !== password,
-      errorMessages,
+      clientErrors,
     })
   }
   render() {
     const {emailError, passwordError, confirmPasswordError,} = this.state
-    const formHasError = emailError || passwordError || confirmPasswordError
+    const formHasError = emailError || passwordError || confirmPasswordError || this.props.serverErrors.length > 0
+
     return (
       <Segment padded>
+        { this.props.requesting &&
+          <Dimmer active inverted>
+            <Loader />
+          </Dimmer>
+        }
         <Button color='red' fluid>
           <Icon name='google' /> Sign in with Google
         </Button>
@@ -58,7 +69,7 @@ class SignUp extends Component {
         <Form error={formHasError} onSubmit={e => this.handleSubmit(e)}>
           
           <ErrorMessage
-            list={this.state.errorMessages}
+            list={this.state.clientErrors.concat(this.props.serverErrors)}
           />
 
           <Form.Input

@@ -3,8 +3,9 @@ import { Menu, Icon, Dropdown, Header } from 'semantic-ui-react'
 import { Link, Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import './TopNav.css'
+import { auth } from '../firebase'
 
-const TopNav = ({ history, authRequestMade }) => {
+const TopNav = ({ history, user }) => {
 
   const handleItemClick = (e, { name }) => {
     history.push(name)
@@ -34,28 +35,34 @@ const TopNav = ({ history, authRequestMade }) => {
           <Dropdown.Item name='/lists/all' onClick={handleItemClick}>All</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      { authRequestMade && 
+      { user.authRequestMade && 
         <Menu.Menu position='right'>
-          <Menu.Item
-            name='/sign-up'
-            onClick={handleItemClick}
-          >
-            Sign Up
-          </Menu.Item>
-          <Menu.Item
-            name='/sign-in'
-            onClick={handleItemClick}
-          >
-            Sign In
-          </Menu.Item>
-          <Dropdown item text='Account'>
-            <Dropdown.Menu>
-              <Dropdown.Item name='/account/settings' onClick={handleItemClick} >Settings</Dropdown.Item>
-              <Dropdown.Item name='/account/change-password' onClick={handleItemClick} >Change Password</Dropdown.Item>
-              <Dropdown.Item name='/account/change-email' onClick={handleItemClick} >Change Email</Dropdown.Item>
-              <Dropdown.Item name='/account/sign-out' onClick={handleItemClick} >Sign Out</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          { !user.uid && 
+            <Menu.Item
+              name='/sign-in/new'
+              onClick={handleItemClick}
+            >
+              Sign Up
+            </Menu.Item> 
+          }
+          { !user.uid && 
+            <Menu.Item
+              name='/sign-in'
+              onClick={handleItemClick}
+            >
+              Sign In
+            </Menu.Item>
+          }
+          { user.uid && 
+            <Dropdown item text='Account'>
+              <Dropdown.Menu>
+                <Dropdown.Item name='/account/settings' onClick={handleItemClick} >Settings</Dropdown.Item>
+                <Dropdown.Item name='/account/change-password' onClick={handleItemClick} >Change Password</Dropdown.Item>
+                <Dropdown.Item name='/account/change-email' onClick={handleItemClick} >Change Email</Dropdown.Item>
+                <Dropdown.Item name='/account/sign-out' onClick={() => auth.signOut().then(() => history.push('/'))} >Sign Out</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          }
         </Menu.Menu>
       }
     </Menu>
