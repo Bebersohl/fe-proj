@@ -9,19 +9,16 @@ const mapStateToProps = ({ errors, user, requesting }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleCreateUser(email, password, newUser){
+  handleCreateUser(email, password, newUser) {
     dispatch({
       type: 'SIGN_IN_USER_REQUEST',
       email,
       password,
       newUser,
     })
-  }
+  },
 })
 
-const SignInContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignIn)
+const SignInContainer = connect(mapStateToProps, mapDispatchToProps)(SignIn)
 
 export default SignInContainer

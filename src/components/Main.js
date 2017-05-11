@@ -6,10 +6,10 @@ import './Main.css'
 const Main = () => (
   <main className="Main">
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/about' component={About}/>
-      <Route path='/sign-in/:new_user?' component={SignInContainer}/>
-      <Route path='/Topic' component={Topic}/>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/sign-in/:new_user?" component={SignInContainer} />
+      <Route path="/Topic" component={Topic} />
     </Switch>
   </main>
 )

@@ -7,13 +7,12 @@ import TopNavContainer from '../containers/TopNavContainer'
 import { BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
-
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
-  componentDidMount(){
+  componentDidMount() {
     auth.onAuthStateChanged(user => {
       this.props.handleAuthChange(user)
-    });
+    })
   }
 
   render() {
@@ -21,8 +20,8 @@ class App extends Component {
       <BrowserRouter>
         <Grid container columns={1}>
           <Grid.Column>
-            <TopNavContainer location={this.props.location}/>
-            <Main/>
+            <TopNavContainer location={this.props.location} />
+            <Main />
           </Grid.Column>
         </Grid>
       </BrowserRouter>

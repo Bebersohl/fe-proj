@@ -3,5 +3,5 @@ import { shallow } from 'enzyme'
 import SignIn from './SignIn'
 
 it('renders without crashing', () => {
-  shallow(<SignIn serverErrors={[]} match={{params: 'new'}}/>)
+  shallow(<SignIn serverErrors={[]} match={{ params: 'new' }} />)
 })

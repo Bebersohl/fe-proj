@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   errors,
   user,
   requesting,
-});
+})
 
 export default rootReducer

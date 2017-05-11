@@ -5,8 +5,6 @@ const mapStateToProps = ({ user }) => ({
   user,
 })
 
-const TopNavContainer = connect(
-  mapStateToProps
-)(TopNav)
+const TopNavContainer = connect(mapStateToProps)(TopNav)
 
 export default TopNavContainer
