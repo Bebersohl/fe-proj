@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import SidebarLeft from './SidebarLeft'
+import SignIn from './SignIn'
 
 it('renders without crashing', () => {
-  shallow(<SidebarLeft />)
+  shallow(<SignIn serverErrors={[]} match={{params: 'new'}}/>)
 })

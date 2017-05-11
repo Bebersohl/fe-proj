@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Header from './Header'
+import Main from './Main'
 
 it('renders without crashing', () => {
-  shallow(<Header user={{}}/>)
+  shallow(<Main />)
 })

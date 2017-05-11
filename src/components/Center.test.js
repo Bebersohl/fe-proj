@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import HeaderLogged from './HeaderLogged'
+import Center from './Center'
 
 it('renders without crashing', () => {
-  shallow(<HeaderLogged />)
+  shallow(<Center />)
 })

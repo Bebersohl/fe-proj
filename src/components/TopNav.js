@@ -1,6 +1,5 @@
 import React from 'react'
 import { Menu, Icon, Dropdown, Header } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import './TopNav.css'
 import { auth } from '../firebase'

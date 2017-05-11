@@ -7,22 +7,6 @@ it('handles initial state', () => {
   const next = user(undefined, {})
   expect(next).toMatchSnapshot()
 })
-it('handles CREATE_USER_REQUEST', () => {
-    const next = user(initialState, {type: 'CREATE_USER_REQUEST'})
-    expect(next).toMatchSnapshot()
-})
-it('handles CREATE_USER_SUCCESS', () => {
-    const next = user(initialState, {type: 'CREATE_USER_SUCCESS', user: currentUser})
-    expect(next).toMatchSnapshot()
-})
-it('handles CREATE_USER_FAIL', () => {
-    const next = user(initialState, {type: 'CREATE_USER_FAIL'})
-    expect(next).toMatchSnapshot()
-})
-it('handles SIGN_IN_USER_REQUEST', () => {
-    const next = user(initialState, {type: 'SIGN_IN_USER_REQUEST'})
-    expect(next).toMatchSnapshot()
-})
 it('handles SIGN_IN_USER_SUCCESS', () => {
     const next = user(initialState, {type: 'SIGN_IN_USER_SUCCESS', user: currentUser})
     expect(next).toMatchSnapshot()

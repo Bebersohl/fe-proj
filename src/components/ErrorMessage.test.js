@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Footer from './Footer'
+import ErrorMessage from './ErrorMessage'
 
 it('renders without crashing', () => {
-  shallow(<Footer />)
+  shallow(<ErrorMessage />)
 })

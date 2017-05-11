@@ -4,7 +4,8 @@ import SignIn from '../components/SignIn'
 const mapStateToProps = ({ errors, user, requesting }) => ({
   serverErrors: Object.keys(errors).map(key => errors[key]),
   requesting,
-  signedIn: user.uid ? true : false
+  signedIn: user.uid ? true : false,
+  authRequestMade: user.authRequestMade,
 })
 
 const mapDispatchToProps = dispatch => ({

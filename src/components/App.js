@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
 import { auth } from '../firebase'
-import SidebarLeft from './SidebarLeft'
-import { Icon, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import Main from './Main'
 import TopNavContainer from '../containers/TopNavContainer'
 import { BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
-  state = { 
-    visible: false 
-  }
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
@@ -21,7 +17,6 @@ class App extends Component {
   }
 
   render() {
-    const { visible } = this.state
     return (
       <BrowserRouter>
         <Grid container columns={1}>

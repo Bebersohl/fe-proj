@@ -1,6 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
 import { auth } from './firebase'
-import { delay } from 'redux-saga'
 
 export function createUserRequest(email, password) {
   return auth.createUserWithEmailAndPassword(email, password)
@@ -14,21 +13,9 @@ export function signInUserRequest(email, password) {
     .catch(error => ({ error }))
 }
 
-// export function* createUser({email, password}) {
-//   const { user, error } = yield call(createUserRequest, email, password)
-//   yield delay(3000)
-//   if (user) {
-//     yield put({ type: 'SIGN_IN_USER_SUCCESS', user })
-//   }
-//   else {
-//     yield put({ type: 'SIGN_IN_USER_FAIL', error })
-//   }
-// }
-
 export function* signInUser({email, password, newUser}) {
   const func = newUser ? createUserRequest : signInUserRequest
   const { user, error } = yield call(func, email, password)
-  yield delay(3000)
   if (user) {
     yield put({ type: 'SIGN_IN_USER_SUCCESS', user })
   }
@@ -39,7 +26,6 @@ export function* signInUser({email, password, newUser}) {
 
 export default function* rootSaga() {
   yield [
-    //takeEvery('CREATE_USER_REQUEST', createUser),
     takeEvery('SIGN_IN_USER_REQUEST', signInUser)
   ]
 }

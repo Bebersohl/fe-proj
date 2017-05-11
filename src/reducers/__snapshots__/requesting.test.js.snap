@@ -1,0 +1,7 @@
+exports[`test handles SIGN_IN_USER_FAIL 1`] = `false`;
+
+exports[`test handles SIGN_IN_USER_REQUEST 1`] = `false`;
+
+exports[`test handles SIGN_IN_USER_SUCCESS 1`] = `false`;
+
+exports[`test handles initial state 1`] = `false`;

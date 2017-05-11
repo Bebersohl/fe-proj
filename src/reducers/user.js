@@ -10,20 +10,17 @@ const user = (state = initialState, action) => {
         ...state,
         uid: action.user.uid
       }
-      break
     case 'SIGN_IN_USER_FAIL':
       return {
         ...state,
         uid: null,
       }
-      break
     case 'AUTH_CHANGE':
       return {
         ...state,
         authRequestMade: true,
         uid: action.user ? action.user.uid : null
       }
-      break
     default:
       return state
   }

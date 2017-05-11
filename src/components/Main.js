@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import SignUpContainer from '../containers/SignUpContainer'
 import SignInContainer from '../containers/SignInContainer'
 import './Main.css'
 

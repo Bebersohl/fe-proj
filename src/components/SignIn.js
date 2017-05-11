@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
-import { Segment, Button, Form, Header, Icon, Divider, Message, Dimmer, Loader } from 'semantic-ui-react'
+import { Segment, Button, Form, Header, Divider, Dimmer, Loader } from 'semantic-ui-react'
 import ErrorMessage from './ErrorMessage'
 import {validate} from 'email-validator'
 import {Redirect, Link} from 'react-router-dom'
 import './SignIn.css'
+import GoogleLoginButton from './GoogleLoginButton'
+import Center from './Center'
 
 class SignIn extends Component {
   state = {
@@ -72,15 +74,14 @@ class SignIn extends Component {
       return <Redirect to='/'/>
     }
     return (
+      <Center>
       <Segment className="SignIn" padded>
-        { this.props.requesting &&
+        { (this.props.requesting || !this.props.authRequestMade) &&
           <Dimmer active inverted>
             <Loader />
           </Dimmer>
         }
-        <Button color='red' fluid>
-          <Icon name='google' /> {title} with Google
-        </Button>
+        <GoogleLoginButton/>
         <Divider horizontal>Or</Divider>
         <Header as='h3'>
           {title}
@@ -115,13 +116,19 @@ class SignIn extends Component {
           }
           <Button type='submit' fluid>{title}</Button>
           <br/>
-          <Link to={newUser ? '/sign-in' : '/sign-in/new'}>
+          {/*<Link to={newUser ? '/sign-in' : '/sign-in/new'}>
             <Button basic fluid compact size='small'>
               {newUser ? 'Sign In' : 'Sign Up'}
             </Button>
-          </Link>
+          </Link>*/}
+          <div style={{display: 'block', textAlign: 'center'}}>
+            <Link to={newUser ? '/sign-in' : '/sign-in/new'}>
+              {newUser ? 'Sign In' : 'Sign Up'}
+            </Link>
+          </div>
         </Form>
       </Segment>
+      </Center>
     )
   }
 }

@@ -1,71 +1,34 @@
 exports[`test handles AUTH_CHANGE with user 1`] = `
 Object {
-  "creatingUser": false,
-  "signingInUser": false,
+  "authRequestMade": true,
   "uid": "unique-id",
 }
 `;
 
 exports[`test handles AUTH_CHANGE without user 1`] = `
 Object {
-  "creatingUser": false,
-  "signingInUser": false,
+  "authRequestMade": true,
   "uid": null,
-}
-`;
-
-exports[`test handles CREATE_USER_FAIL 1`] = `
-Object {
-  "creatingUser": false,
-  "signingInUser": false,
-  "uid": null,
-}
-`;
-
-exports[`test handles CREATE_USER_REQUEST 1`] = `
-Object {
-  "creatingUser": true,
-  "signingInUser": false,
-  "uid": null,
-}
-`;
-
-exports[`test handles CREATE_USER_SUCCESS 1`] = `
-Object {
-  "creatingUser": false,
-  "signingInUser": false,
-  "uid": "unique-id",
 }
 `;
 
 exports[`test handles SIGN_IN_USER_FAIL 1`] = `
 Object {
-  "creatingUser": false,
-  "signingInUser": false,
-  "uid": null,
-}
-`;
-
-exports[`test handles SIGN_IN_USER_REQUEST 1`] = `
-Object {
-  "creatingUser": false,
-  "signingInUser": true,
+  "authRequestMade": false,
   "uid": null,
 }
 `;
 
 exports[`test handles SIGN_IN_USER_SUCCESS 1`] = `
 Object {
-  "creatingUser": false,
-  "signingInUser": false,
+  "authRequestMade": false,
   "uid": "unique-id",
 }
 `;
 
 exports[`test handles initial state 1`] = `
 Object {
-  "creatingUser": false,
-  "signingInUser": false,
+  "authRequestMade": false,
   "uid": null,
 }
 `;
