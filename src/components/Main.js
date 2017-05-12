@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import SignInContainer from '../containers/SignInContainer'
 import './Main.css'
 
+import GearTable from './GearTable'
+
 const Main = () => (
   <main className="Main">
     <Switch>
@@ -16,7 +18,7 @@ const Main = () => (
 
 const Home = () => (
   <div>
-    <h2>Home</h2>
+    <GearTable />
   </div>
 )
 
