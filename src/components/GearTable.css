@@ -1,0 +1,8 @@
+.GearTable--Segment{
+    padding: 0px !important;
+}
+
+th{
+    border-left: 0px !important;
+    border-right: 0px !important;
+}

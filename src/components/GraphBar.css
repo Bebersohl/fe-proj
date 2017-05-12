@@ -1,0 +1,5 @@
+.GraphBar{
+    display: flex;
+    align-content: stretch;
+    padding: 0 !important;
+}
